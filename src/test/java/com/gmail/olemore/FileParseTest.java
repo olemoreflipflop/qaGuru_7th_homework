@@ -18,13 +18,13 @@ public class FileParseTest {
 
     @Test
     void zipTest() throws Exception {
-        ZipFile zip = new ZipFile("files/res.zip");
+        ZipFile zip = new ZipFile("src\\test\\resources\\files\\files.zip");
 
         // pdf
-        ZipEntry zipEntryPDF = zip.getEntry("PDF.pdf");
+        ZipEntry zipEntryPDF = zip.getEntry("sql.pdf");
         try(InputStream isPDF = zip.getInputStream(zipEntryPDF)) {
             PDF parsed = new PDF(isPDF);
-            assertThat(parsed.text).contains("I am PDF file!");
+            assertThat(parsed.text).contains("sql");
         }
     }
 }
